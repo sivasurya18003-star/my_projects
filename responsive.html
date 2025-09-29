@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      background: #333; padding: 10px 20px; color: white;
+    }
+    .nav-links { display: flex; gap: 15px; }
+    .nav-links a { color: white; text-decoration: none; }
+    .menu-toggle { display: none; cursor: pointer; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; background: #444; }
+      .nav-links.active { display: flex; }
+      .menu-toggle { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">MySite</div>
+    <div class="menu-toggle">☰</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+
+  <script>
+    const toggle = document.querySelector(".menu-toggle");
+    const links = document.querySelector(".nav-links");
+    toggle.addEventListener("click", () => links.classList.toggle("active"));
+  </script>
+</body>
+</html>
